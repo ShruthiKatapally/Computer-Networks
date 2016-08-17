@@ -1,0 +1,36 @@
+P538 - Computer Networks																																11/02/14
+Project3:  Wiretap
+By: Aliaksandr Krukau (akrukau)	
+    Shruthi Katapally (shrukata)
+Description: 
+	In this project we are parsing the details of packets 
+which are in the pcap files captured using Wireshark and we access them using libpcap. 
+	We use the headers like Ethernet(#include <netinet/ether.h>), IP(#include <linux/ip.h>), TCP(#include <netinet/tcp.h>) and TLS(#include <time.h>,#include <limits.h>) are parsed
+	to get the information like Source and Destination addresses, 
+    ports, Timestamp,etc.
+	
+	Here, we open all the headers and will use the structures they have and their variables. All the data is read packet by packet. All the headers are parsed and their data is populated in the structures we use.
+
+Compilation: 
+In order to compile without the make me file, 
+g++ wiretap.c -lpcap  
+In order to compile using makefile, type:
+make
+
+Files present: 
+wiretap.cpp
+Makefile 
+Readme
+
+Usage: ./wiretap --open file.pcap //to open file
+		
+Options which we can give are:
+1)	--open option: For opening a pcap file to parse the details.
+2)	–-help option: For help screen
+
+
+Output Analyzation:
+We have output printed in the command line. We extract the details of the packets in the pcap file provided. Details like Capture Start time, Capture Duration, Number of packets in the file, Maximum, Minimum and average packet size, Ethernet source and destination address, IP Source and destination address, source and destination ports, and the transport layer protocols are printed.
+All the above are grouped under the particular type and the unique details among them are displayed giving the count how many times they have occurred in the file.
+
+                                          
